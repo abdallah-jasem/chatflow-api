@@ -296,6 +296,11 @@ export class RoomsService {
     return memberships.map((membership) => membership.room);
   }
 
+  async ensureUserIsMember(roomId: string, userId: string) {
+    await this.findRoom(roomId);
+    return this.findRoomMember(roomId, userId);
+  }
+
   private async findRoom(roomId: string) {
     const room = await this.roomRepository.findOne({
       where: { id: roomId },

@@ -27,5 +27,6 @@ import { JwtStrategy } from './strategy/jwt.strategy';
     JwtStrategy,
     { provide: HashingService, useClass: BcryptService },
   ],
+  exports: [JwtModule],
 })
 export class AuthModule {}
