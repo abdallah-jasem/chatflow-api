@@ -6,7 +6,7 @@ import { UsersModule } from './users/users.module';
 import { RoomsModule } from './rooms/rooms.module';
 import { MessagesModule } from './messages/messages.module';
 import { FilesModule } from './files/files.module';
-import { ChatGateway } from './chat/chat/chat.gateway';
+import { ChatModule } from './chat/chat.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
@@ -46,8 +46,9 @@ import { RoomMember } from './rooms/entities/room-member.entity';
     RoomsModule,
     MessagesModule,
     FilesModule,
+    ChatModule,
   ],
   controllers: [AppController],
-  providers: [AppService, ChatGateway, SanitizeUserInterceptor],
+  providers: [AppService, SanitizeUserInterceptor],
 })
 export class AppModule {}
